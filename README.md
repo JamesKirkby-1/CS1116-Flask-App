@@ -1,2 +1,2 @@
 # Web-Dev-Project-2
-eCommerce site using Flask &amp; Python
+E-commerce site using Flask &amp; Python
