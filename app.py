@@ -159,11 +159,6 @@ def remove_from_cart(product_id):
     if session["cart"][product_id] == 0:
         del session["cart"][product_id]
     print(session["cart"])
-    #Removes all items from cart
-    '''#Removes all items from cart
-    for key in session["cart"]:
-        if int(key) == product_id:
-            del session["cart"]'''
     return redirect( url_for("cart"))
 
 #Route for checkout page
