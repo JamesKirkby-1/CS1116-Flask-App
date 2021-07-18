@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %} 
+    <div class="content-section">
+        <div class="row">
+            <div class="col-sm">
+                <legend>Your Cart</legend>  
+                <table class="table table-responsive-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">Product</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Unit Price</th>
+                            <th scope="col">Subtotal</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for product_id in cart %}
+                            <tr>
+                                <td>{{ names[product_id] }}</td>
+                                <td>{{ cart[product_id] }}</td>
+                                <td>{{ '€{:,.2f}'.format(prices[product_id]) }}</td>
+                                <td>{{ '€{:,.2f}'.format(subtotals[product_id]) }}</td>
+                                <td><a href="{{ url_for('remove_from_cart', product_id=product_id) }}">Remove</a> 
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        <tr>
+                            <td colspan="5"><b>Total: </b>{{ '€{:,.2f}'.format(total) }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                {% if not cart %}
+                <a href="{{ url_for('index') }}" class="w-100 btn btn-primary btn-lg">Your cart is empty! Continue shopping</a>
+                {% else %}
+                    <a href="{{ url_for('checkout') }}" class="w-100 btn btn-primary btn-lg">Proceed to Checkout</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
